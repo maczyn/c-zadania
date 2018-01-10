@@ -2,7 +2,7 @@
 #include <stdlib.h>
 char base4_1[]="00";
 char base4_2[]="00";
-int a, b, x, y, i=0;
+int a, b=0, x, y, i=0;
 
 int conv1(char tab[2])
 {
@@ -24,6 +24,7 @@ int conv1(char tab[2])
 
 
         }
+        printf("%d",x);
         i++;
         switch(tab[i])
         {
@@ -40,6 +41,8 @@ int conv1(char tab[2])
                 y=3;
                 break;
         }
+        printf("%d",y);
+
     return x*4+y;
 
 }
@@ -50,7 +53,7 @@ int main()
     scanf ("%c%c", &base4_1[0], &base4_1[1]);
 
     a=conv1(base4_1);
-    printf("%d\n",base4_1);
+    printf("%d\n",a);
 
 
     printf("podaj kolejna liczbe w base4\n");
@@ -58,7 +61,7 @@ int main()
 
     b=conv1(base4_2);
 
-    printf("%d\n",base4_2);
+    printf("%d\n",b);
 
     return 0;
 }
