@@ -2,11 +2,10 @@
 #include <stdlib.h>
 char base4_1[]="00";
 char base4_2[]="00";
-int a, b=0, x, y, i=0;
+int a, b, x, y, i=0;
 
 int conv1(char tab[2])
 {
-
         switch(tab[i])
         {
             case '0':
@@ -21,10 +20,7 @@ int conv1(char tab[2])
             case '3':
                 x=3;
                 break;
-
-
         }
-        printf("%d",x);
         i++;
         switch(tab[i])
         {
@@ -41,10 +37,7 @@ int conv1(char tab[2])
                 y=3;
                 break;
         }
-        printf("%d",y);
-
     return x*4+y;
-
 }
 
 int main()
