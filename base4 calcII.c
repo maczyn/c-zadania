@@ -6,7 +6,6 @@ char wynik []="        ";
 int a, b, x, y;
 unsigned int e;
 char d, f=0;
-char tablica1 []="        ";
 int reszta;
 
 
@@ -45,7 +44,7 @@ int conv1(char tab[2])
             case '2':
                 y=2;
                 break;
-            case '3':
+         printf("%c%c%c%c%c=-",base4_1[0],base4_1[1],d,base4_2[0],base4_2[1]);   case '3':
                 y=3;
                 break;
             default:
@@ -75,9 +74,8 @@ int main()
 
     b=conv1(base4_2);
     //printf("%d\n",b);
-    while ((c = getchar()) != '\n' && c != EOF) { }
 
-    char tablica1 []="        ";
+    while ((c = getchar()) != '\n' && c != EOF) { }
 
     printf("jakie dzialanie chcesz wykonac?\n");
     printf("+\n");
@@ -100,26 +98,33 @@ int main()
 
     printf("%c%c%c%c%c=",base4_1[0],base4_1[1],d,base4_2[0],base4_2[1]);
 
-    do{
-    reszta = e % 4;
-    e = e / 4;
-    if(reszta == 0){
-      printf("0");
-      wynik[f]='0';
-    }else if(reszta==1){
-      printf("1");
-      wynik[f]='1';
-    }else if(reszta == 2){
-      printf("2");
-      wynik[f]='2';
-    }else{
-      printf("3");
-      wynik[f]='3';
+    if (e<0)
+    {
+        e=abs(e);
+        printf("tu%d\n",e);
+        printf("-");
+
     }
+        do{
+        reszta = e % 4;
+        e = e / 4;
+        if(reszta == 0){
+          printf("0");
+          wynik[f]='0';
+        }else if(reszta==1){
+          printf("1");
+          wynik[f]='1';
+        }else if(reszta == 2){
+          printf("2");
+          wynik[f]='2';
+        }else{
+          printf("3");
+          wynik[f]='3';
+        }
 
-    ++f;
+        ++f;
 
-  }while(e != 0);
+        }while(e != 0);
 
     printf("\n");
 
