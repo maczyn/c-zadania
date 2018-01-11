@@ -7,9 +7,7 @@ int a, b, x, y;
 signed int e;
 char d, f=0;
 int reszta;
-
-int bError = 0;
-
+int error=0;
 
 int conv1(char tab[2])
 {
@@ -30,7 +28,7 @@ int conv1(char tab[2])
                 break;
             default:
                 printf("blad\n");
-                bError = 1;
+                error=1;
             break;
         }
         i++;
@@ -47,12 +45,13 @@ int conv1(char tab[2])
                 break;
          printf("%c%c%c%c%c=-",base4_1[0],base4_1[1],d,base4_2[0],base4_2[1]);   case '3':
                 y=3;
-                break;
+                break;  printf("%d", a);
+
             default:
                 printf("blad\n");
-                bError=1;
+                error=1;
             break;
-        }
+        }int n,m;
     return x*4+y;
 }
 
@@ -63,7 +62,7 @@ int main()
     scanf ("%c%c", &base4_1[0], &base4_1[1]);
 
     a=conv1(base4_1);
-    if(bError)
+    if(error)
         exit(0);
     //printf("%d\n",a);
 
@@ -71,11 +70,12 @@ int main()
     while ((c = getchar()) != '\n' && c != EOF) { }
 
 
+
     printf("podaj kolejna liczbe w base4\n");
     scanf ("%c%c", &base4_2[0], &base4_2[1]);
 
     b=conv1(base4_2);
-    if(bError)
+    if(error)
         exit(0);
     //printf("%d\n",b);
 
@@ -88,12 +88,10 @@ int main()
     if (d=='+')
     {
         e=a+b;
-        printf("znak + \n");
     }
     else if (d=='-')
     {
         e=a-b;
-        printf("znak - \n");
     }
     else
     {
@@ -107,12 +105,10 @@ int main()
     if (e<0)
     {
         e=abs(e);
-        printf("tu%d\n",e);
         printf("-");
 
     }
     do{
-        printf("[e=%d]",e);
         reszta = e % 4;
         e = e / 4;
         if(reszta == 0){
