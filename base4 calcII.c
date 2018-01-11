@@ -4,9 +4,11 @@ char base4_1[]="00";
 char base4_2[]="00";
 char wynik []="        ";
 int a, b, x, y;
-unsigned int e;
+signed int e;
 char d, f=0;
 int reszta;
+
+int bError = 0;
 
 
 int conv1(char tab[2])
@@ -28,8 +30,7 @@ int conv1(char tab[2])
                 break;
             default:
                 printf("blad\n");
-                getchar();
-                exit(0);
+                bError = 1;
             break;
         }
         i++;
@@ -49,8 +50,7 @@ int conv1(char tab[2])
                 break;
             default:
                 printf("blad\n");
-                getchar();
-                exit(0);
+                bError=1;
             break;
         }
     return x*4+y;
@@ -63,6 +63,8 @@ int main()
     scanf ("%c%c", &base4_1[0], &base4_1[1]);
 
     a=conv1(base4_1);
+    if(bError)
+        exit(0);
     //printf("%d\n",a);
 
     char c;
@@ -73,6 +75,8 @@ int main()
     scanf ("%c%c", &base4_2[0], &base4_2[1]);
 
     b=conv1(base4_2);
+    if(bError)
+        exit(0);
     //printf("%d\n",b);
 
     while ((c = getchar()) != '\n' && c != EOF) { }
@@ -80,14 +84,16 @@ int main()
     printf("jakie dzialanie chcesz wykonac?\n");
     printf("+\n");
     printf("-\n");
-    scanf("%c\n",&d);
+    scanf("%c",&d);
     if (d=='+')
     {
         e=a+b;
+        printf("znak + \n");
     }
     else if (d=='-')
     {
         e=a-b;
+        printf("znak - \n");
     }
     else
     {
@@ -105,7 +111,8 @@ int main()
         printf("-");
 
     }
-        do{
+    do{
+        printf("[e=%d]",e);
         reszta = e % 4;
         e = e / 4;
         if(reszta == 0){
@@ -124,7 +131,7 @@ int main()
 
         ++f;
 
-        }while(e != 0);
+    }while(e != 0);
 
     printf("\n");
 
