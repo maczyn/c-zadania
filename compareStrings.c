@@ -1,43 +1,36 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
 /*
-Napisz funkcjê compareStrings() która porównywa dwa tablice
-z charami na równoœæ. Funkcja ma wynik w formie prawdy(1) i fa³sz(0).
-Funkcja ma u¿ywac tylko wskaŸniki!
+Napisz funkcjÃª compareStrings() ktÃ³ra porÃ³wnywa dwa tablice
+z charami na rÃ³wnoÅ“Ã¦. Funkcja ma wynik w formie prawdy(1) i faÂ³sz(0).
+Funkcja ma uÂ¿ywac tylko wskaÅ¸niki!
 */
 
-bool compareStrings(char *tab1[], char *tab2[])
+#define SIZE 3
+
+bool compareStrings(char *tab1,char *tab2)
 {
-    int i = 0, size = 3;
+    int i = 0;
 
-    while (i;i<size;i++)
+    for(i;i<SIZE;i++)
     {
-        if (*tab1+i<size && *tab2+i<size)
-        {
-            if (*tab1+i==*tab2+i)
-            {
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
+        if (*(tab1+i)!=*(tab2+i))
         {
             return false;
         }
     }
+    return true;
+
 }
 
 
 int main()
 {
-    char t1={'a','s','d'};
-    char t2={'a','s','d'};
+    char t1[SIZE]={'a','s','d'};
+    char t2[SIZE]={'a','s','d'};
 
     printf(compareStrings(t1,t2) ? "true" : "false");
     return 0;
